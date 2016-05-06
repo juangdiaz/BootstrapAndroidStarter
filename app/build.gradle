@@ -49,5 +49,5 @@ dependencies {
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 
     testCompile 'junit:junit:4.10'
-    testCompile 'org.robolectric:robolectric:2.+'
+    testCompile 'org.robolectric:robolectric:3.0'
 }

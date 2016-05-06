@@ -10,6 +10,7 @@ This is a baremunimum app that can be used as a starting point when developing a
  - Roboelectric
  - RxJava
  - MVP
+ - okhttp 3
  - more to come!
 
 **Can I contribute?**
