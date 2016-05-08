@@ -1,8 +1,14 @@
 package com.juangdiaz.bootstrap;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.annotation.NonNull;
 
+import com.juangdiaz.bootstrap.dagger.modules.ApiModule;
+import com.juangdiaz.bootstrap.dagger.components.AppComponent;
 import com.squareup.leakcanary.LeakCanary;
+
+import timber.log.Timber;
 
 /**
  * @author juandiaz <juandiaz@us.univision.com> Android Developer
@@ -10,8 +16,41 @@ import com.squareup.leakcanary.LeakCanary;
  */
 public class BaseApplication extends Application {
 
-    @Override public void onCreate() {
+
+    private AppComponent component;
+
+    // Prevent need in a singleton (global) reference to the application object.
+    @NonNull
+    public static BaseApplication get(@NonNull Context context) {
+        return (BaseApplication) context.getApplicationContext();
+    }
+
+    @Override
+    public void onCreate() {
         super.onCreate();
         LeakCanary.install(this);
+
+        initializeInjector();
+
+        initializeTimber();
+    }
+
+    private void initializeTimber() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
+    }
+
+    private void initializeInjector() {
+        component = DaggerAppComponent.builder()
+            .ApiModule(new ApiModule())
+            .build();
+        component.inject(this);
+    }
+
+    public AppComponent getApplicationComponent() {
+        return component;
     }
 }
+
+
