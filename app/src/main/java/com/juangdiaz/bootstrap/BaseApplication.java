@@ -4,8 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.juangdiaz.bootstrap.dagger.modules.ApiModule;
 import com.juangdiaz.bootstrap.dagger.components.AppComponent;
+import com.juangdiaz.bootstrap.dagger.components.DaggerAppComponent;
 import com.squareup.leakcanary.LeakCanary;
 
 import timber.log.Timber;
@@ -43,7 +43,6 @@ public class BaseApplication extends Application {
 
     private void initializeInjector() {
         component = DaggerAppComponent.builder()
-            .ApiModule(new ApiModule())
             .build();
         component.inject(this);
     }
