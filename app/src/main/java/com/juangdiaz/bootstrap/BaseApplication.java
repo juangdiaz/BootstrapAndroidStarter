@@ -2,7 +2,6 @@ package com.juangdiaz.bootstrap;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
 
 import com.juangdiaz.bootstrap.dagger.components.AppComponent;
 import com.juangdiaz.bootstrap.dagger.components.DaggerAppComponent;
@@ -20,8 +19,8 @@ public class BaseApplication extends Application {
     private AppComponent component;
 
     // Prevent need in a singleton (global) reference to the application object.
-    @NonNull
-    public static BaseApplication get(@NonNull Context context) {
+   // @NonNull
+    public static BaseApplication get(Context context) {
         return (BaseApplication) context.getApplicationContext();
     }
 
