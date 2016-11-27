@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.juangdiaz.bootstrap.dagger.components.AppComponent;
+import com.juangdiaz.bootstrap.dagger.components.DaggerAppComponent;
 import com.squareup.leakcanary.LeakCanary;
 
 
@@ -28,21 +29,25 @@ public abstract class BaseApplication extends Application {
         init();
 
         LeakCanary.install(this);
-
         initializeInjector();
     }
 
 
 
+
     private void initializeInjector() {
-       /* component = DaggerAppComponent.builder()
+        component = DaggerAppComponent.builder()
             .build();
-        component.inject(this);*/
+        //component.inject(this);
     }
 
     public AppComponent getApplicationComponent() {
         return component;
     }
+
+
 }
+
+
 
 
