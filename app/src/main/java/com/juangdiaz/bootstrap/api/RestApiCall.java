@@ -8,8 +8,7 @@ import retrofit2.http.GET;
 import rx.Observable;
 
 /**
- * @author juandiaz <juandiaz@us.univision.com> Android Developer
- *         Copyright (C) 2016, Univision Communications Inc.
+ * @author juandiaz <juan@juangdiaz.com> Android Developer
  */
 public class RestApiCall {
 

@@ -1,1 +1,4 @@
-include ':app'
+include ':boilerplate'
+//you can change the boilerplate name to the projects name,
+// this is when we create the Apk it will have the apps name, instead of a generic name
+project(':boilerplate').projectDir = new File('app')

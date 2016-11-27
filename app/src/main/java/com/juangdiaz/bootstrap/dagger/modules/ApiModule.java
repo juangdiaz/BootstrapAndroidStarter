@@ -16,8 +16,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 /**
- * @author juandiaz <juandiaz@us.univision.com> Android Developer
- *         Copyright (C) 2016, Univision Communications Inc.
+ * @author juandiaz <juan@juangdiaz.com> Android Developer
  */
 
 @Module

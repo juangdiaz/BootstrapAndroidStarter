@@ -4,17 +4,15 @@ import android.app.Application;
 import android.content.Context;
 
 import com.juangdiaz.bootstrap.dagger.components.AppComponent;
-import com.juangdiaz.bootstrap.dagger.components.DaggerAppComponent;
 import com.squareup.leakcanary.LeakCanary;
 
-import timber.log.Timber;
 
 /**
- * @author juandiaz <juandiaz@us.univision.com> Android Developer
- *         Copyright (C) 2016, Univision Communications Inc.
+ * @author juandiaz <juan@juangdiaz.com> Android Developer
  */
-public class BaseApplication extends Application {
+public abstract class BaseApplication extends Application {
 
+    public abstract void init();
 
     private AppComponent component;
 
@@ -27,23 +25,19 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        init();
+
         LeakCanary.install(this);
 
         initializeInjector();
-
-        initializeTimber();
     }
 
-    private void initializeTimber() {
-        if (BuildConfig.DEBUG) {
-            Timber.plant(new Timber.DebugTree());
-        }
-    }
+
 
     private void initializeInjector() {
-        component = DaggerAppComponent.builder()
+       /* component = DaggerAppComponent.builder()
             .build();
-        component.inject(this);
+        component.inject(this);*/
     }
 
     public AppComponent getApplicationComponent() {

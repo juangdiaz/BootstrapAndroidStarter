@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +18,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        BaseApplication.get(this).getApplicationComponent().inject(this);
+        BaseApplicationImpl.get(this).getApplicationComponent().inject(this);
+
+        Timber.d("Hello this is a debug statement using Timber");
 
     }
 }
