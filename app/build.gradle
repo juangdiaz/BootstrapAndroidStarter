@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 23
@@ -51,13 +50,17 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-jackson:2.0.2'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
-    compile 'com.jakewharton:butterknife:8.0.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2'
     compile 'com.jakewharton.timber:timber:4.3.1'
     compile 'com.facebook.stetho:stetho:1.4.1'
-    compile 'com.google.dagger:dagger:2.4'
-    apt 'com.google.dagger:dagger-compiler:2.4'
+
+
+    //Dependency Injection
+    compile 'com.google.dagger:dagger:2.8'
+    annotationProcessor "com.google.dagger:dagger-compiler:2.8"
+    compile 'com.jakewharton:butterknife:8.0.1'
+
 
 
     compile 'io.reactivex:rxandroid:1.2.0'
