@@ -2,9 +2,11 @@ package com.juangdiaz.bootstrap;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.juangdiaz.bootstrap.dagger.components.AppComponent;
 import com.juangdiaz.bootstrap.dagger.components.DaggerAppComponent;
+import com.juangdiaz.bootstrap.dagger.modules.ApplicationModule;
 import com.squareup.leakcanary.LeakCanary;
 
 
@@ -18,9 +20,9 @@ public abstract class BaseApplication extends Application {
     private AppComponent component;
 
     // Prevent need in a singleton (global) reference to the application object.
-   // @NonNull
+    @NonNull
     public static BaseApplication get(Context context) {
-        return (BaseApplication) context.getApplicationContext();
+        return (BaseApplicationImpl) context.getApplicationContext();
     }
 
     @Override
@@ -37,8 +39,9 @@ public abstract class BaseApplication extends Application {
 
     private void initializeInjector() {
         component = DaggerAppComponent.builder()
-            .build();
-        //component.inject(this);
+                        .applicationModule(new ApplicationModule(this))
+                        .build();
+        component.inject((BaseApplicationImpl) this);
     }
 
     public AppComponent getApplicationComponent() {

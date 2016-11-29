@@ -13,8 +13,7 @@ import dagger.Provides;
 import okhttp3.OkHttpClient;
 
 /**
- * @author juandiaz <juandiaz@us.univision.com> Android Developer
- *         Copyright (C) 2016, Univision Communications Inc.
+ * @author juandiaz <juan@juangdiaz.com> Android Developer
  */
 @Module
 public class ImageModule {

@@ -26,7 +26,7 @@ public class ApiModule {
     @NonNull @Singleton
     public RestApiCall restApiCall(@NonNull OkHttpClient okHttpClient, @NonNull ObjectMapper objectMapper) {
         final Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://jsonplaceholder.typicode.com")
+                .baseUrl("http://jsonplaceholder.typicode.com") // this is static for now, We can make it dynamically
                 .client(okHttpClient)
                 .validateEagerly(BuildConfig.DEBUG)
                 .addConverterFactory(JacksonConverterFactory.create(objectMapper))
