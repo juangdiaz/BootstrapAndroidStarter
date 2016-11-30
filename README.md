@@ -3,9 +3,9 @@
 This is a bare minimum app that can be used as a starting point when developing apps
 
 **What does it have:**
- - Dagger 2
- - ButterKnife
- - LeakCanary
+ - Dagger 2 **(In Progress)**
+ - ButterKnife **(Done)**
+ - LeakCanary **(Done)**
  - Retrofit 2
  - Roboelectric
  - RxJava
